@@ -7,20 +7,16 @@ on:
   workflow_dispatch:
 jobs:
   build:
-    name: Build
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: List files in the repository
         run: |
           ls -a
-      - name: create static deployment file
-        run: |
-          mkdir dist
-          cp index.html dist/index.html
       - name: Update pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/
+          path: /
   deploy:
     needs: build
     permissions:
