@@ -11,8 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create static deployment file
-        run: | 
-          dist/index.html
+        run: |
+          mkdir dist
+          cat index.html >> dist/index.html
 
       - name: Update pages artifact
         uses: actions/upload-pages-artifact@v3
