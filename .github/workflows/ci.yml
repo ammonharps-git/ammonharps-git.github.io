@@ -10,11 +10,13 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: List files in the repository
+        run: |
+          ls -a
       - name: create static deployment file
         run: |
           mkdir dist
-          cat index.html >> dist/index.html
-
+          cp index.html dist/index.html
       - name: Update pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
